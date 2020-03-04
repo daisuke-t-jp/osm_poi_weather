@@ -7,11 +7,20 @@ import time
 import json
 import urllib
 import ssl
+import enum
 
 import overpy
 
 CONNECTION_RETRY = 3
 OPENWEATHERMAP_API = "https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}"
+
+class POIType(enum.Enum):
+    station = 'station'
+    townhall = 'townhall'
+
+class OverpassMode(enum.Enum):
+    local = 'local'
+    server = 'server'
 
 
 def node_overpass_json_from_local():
