@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # coding: UTF-8
 
+import sys
 import logging
 import datetime
 import time
@@ -11,8 +12,10 @@ import enum
 
 import overpy
 
-CONNECTION_RETRY = 3
-OPENWEATHERMAP_API = "https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}"
+# - - - - - - - - - - - - - - - - - - - -
+# Const, Enum
+# - - - - - - - - - - - - - - - - - - - -
+OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'
 
 class POIType(enum.Enum):
     station = 'station'
@@ -22,89 +25,122 @@ class OverpassMode(enum.Enum):
     local = 'local'
     server = 'server'
 
+LOCAL_OVERPASS_FILE =  {
+    POIType.station.value: 'osm_master_public_transport_station.json',
+    POIType.townhall.value: 'osm_master_amenity_townhall.json',
+}
 
-def node_overpass_json_from_local():
-    file = open("overpass.json", 'r')
+# Overpass API query
+# reference : https://overpass-turbo.eu/
+OVERPASS_QUERY =  {
+    POIType.station.value: """
+                                        [out:json];
+                                        area["name"~"日本"];
+                                        node(area)["public_transport"="station"];
+                                        out body;
+                                        """,
+    POIType.townhall.value: """
+                                        [out:json];
+                                        area["name"~"日本"];
+                                        node(area)["amenity"="townhall"];
+                                        out body;
+                                        """,
+}
+
+
+
+# - - - - - - - - - - - - - - - - - - - -
+# Functions
+# - - - - - - - - - - - - - - - - - - - -
+def overpass_nodes(poi_type, overpass_mode):
+    if overpass_mode == OverpassMode.local.value:
+        return overpass_json_from_local(poi_type)
+    if overpass_mode == OverpassMode.server.value:
+        return overpass_json_from_server(poi_type)
+    
+    return []
+
+
+def overpass_json_from_local(poi_type):
+    file = open(LOCAL_OVERPASS_FILE[poi_type], 'r')
     json_obj = json.load(file)
     file.close()
     return json_obj["elements"]
 
+# TODO
+def overpass_json_from_server(poi_type):
+    logging.debug('start overpass API')
 
-
-def node_overpass_json_from_server():
-    logging.debug('Start API')
-
-    # https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%3Barea%5B%22name%22%7E%22%E6%97%A5%E6%9C%AC%22%5D%3Bnode%5B%22public%5Ftransport%22%3D%22station%22%5D%28area%29%3Bout%3B%0A
     api = overpy.Overpass()
+    result = api.query(OVERPASS_QUERY[poi_type])
+    nodes = result.nodes
 
-    for i in range(1, CONNECTION_RETRY + 1):
-        try:
-            result = api.query("""
-                [out:json];
-                area["name"~"日本"];
-                node(area)["public_transport"="station"];
-                out body;
-                """
-            )
-        except Exception as exp:
-            logging.debug(exp.args)
-            sleep(i * 5)
-        else:
-            break
+    logging.debug('end overpass API')
 
-    logging.debug('End API')
-
-    return result.nodes
-
-
-
-def openweathermap_api_key():
-    file = open("openweathermap_api_key.txt", 'r')
-    key = file.read()
-    file.close()
-    return key
-
+    return nodes
 
 
 def openweathermap_weather(api_key, lat, lon):
     url = OPENWEATHERMAP_API.format(api_key, lat, lon)
-    logging.debug('URL[{0}]'.format(url))
-    
+        
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as resp:
         body = json.load(resp)
     return body
 
 
+def osm_poi_weather(poi_type, overpass_mode, openweahtermap_api_key):
+    logging.debug('poi_type[{0}] overpass_mode[{1}]'.format(poi_type, overpass_mode))
 
-def main():
-    ssl._create_default_https_context = ssl._create_unverified_context
+    nodes = overpass_nodes(poi_type, overpass_mode)
+    
+    logging.debug('nodes len[{0}]'.format(len(nodes)))
 
-    logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
-    
-    api_key = openweathermap_api_key()
-    
-    nodes = node_overpass_json_from_local()
-    logging.debug('node num[{0}]'.format(len(nodes)))
-    
     for node in nodes:
-        weather = openweathermap_weather(api_key, node['lat'], node['lon'])
+        weather = openweathermap_weather(openweahtermap_api_key, node['lat'], node['lon'])
         
         name = 'N/A'
         if 'name:ja' in node['tags'].keys():
             name = node['tags']['name:ja']
-        elif 'name' in node.keys():
+        elif 'name' in node['tags'].keys():
             name = node['tags']['name']
-        elif 'name:en' in node.keys():
+        elif 'name:en' in node['tags'].keys():
             name = node['tags']['name:en']
-
-        operator = 'N/A'
+        
+        operator = ''
         if 'operator' in node['tags'].keys():
             operator = node['tags']['operator']
         
-        logging.debug('{0}({1}) -> {2}'.format(name, operator, weather))
-    
+        name2 = name
+        if len(operator) > 0:
+            name2 = '{0}({1})'.format(name, operator)
+        
+        logging.debug('{0} -> {1}'.format(name2, weather))
+        time.sleep(1)   # OpenWeatherMap API free plan has limit that 60 in minute.
 
+    return
+
+
+
+def main():
+    logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
+
+    # Check args.
+    args = sys.argv
+    if len(args) < 4 :
+        logging.debug('invalid args.')
+        sys.exit()
+        return
+    
+    poi_type = args[1]
+    overpass_mode = args[2]
+    openweahtermap_api_key = args[3]
+    
+    # for api.openweathermap.org
+    ssl._create_default_https_context = ssl._create_unverified_context
+    
+    
+    osm_poi_weather(poi_type, overpass_mode, openweahtermap_api_key)
 
 if __name__ == '__main__':
     main()
