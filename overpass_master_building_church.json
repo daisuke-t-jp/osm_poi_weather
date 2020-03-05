@@ -1,0 +1,189 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.56.2 b688b00f",
+  "osm3s": {
+    "timestamp_osm_base": "2020-03-05T14:28:02Z",
+    "timestamp_areas_base": "2020-03-05T13:26:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1719170478,
+  "lat": 35.0403296,
+  "lon": 135.7334329,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "カトリック衣笠教会",
+    "name:en": "Holy Spirit Catholic Church",
+    "religion": "christian",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 2313058024,
+  "lat": 35.7490103,
+  "lon": 139.8254274,
+  "tags": {
+    "building": "church",
+    "name": "明王山宝性寺",
+    "religion": "buddhist"
+  }
+},
+{
+  "type": "node",
+  "id": 2485850009,
+  "lat": 35.8475753,
+  "lon": 139.8466105,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "religion": "buddhist"
+  }
+},
+{
+  "type": "node",
+  "id": 2637060835,
+  "lat": 35.5629117,
+  "lon": 139.5771196,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "都筑讃美教会",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2946246148,
+  "lat": 35.7316087,
+  "lon": 139.7275437,
+  "tags": {
+    "building": "church",
+    "name": "ベルクラシック東京",
+    "name:en": "Bellclassic Tokyo"
+  }
+},
+{
+  "type": "node",
+  "id": 2972899485,
+  "lat": 35.7164632,
+  "lon": 139.9803148,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "新船橋キリスト教会",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3264856661,
+  "lat": 35.6212690,
+  "lon": 140.1966210,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "若葉キリスト教会",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3453107637,
+  "lat": 33.2745495,
+  "lon": 131.5019672,
+  "tags": {
+    "building": "church",
+    "name": "Catholic Beppu Church"
+  }
+},
+{
+  "type": "node",
+  "id": 3605055670,
+  "lat": 35.7182176,
+  "lon": 139.9416139,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "インマヌエル市川キリスト教会",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3874137734,
+  "lat": 35.5441432,
+  "lon": 140.2059265,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "protestant",
+    "name": "キリスト教会誉田チャペル",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 4407737494,
+  "lat": 35.7037140,
+  "lon": 139.7328680,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "日本聖公会センター",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 5084835896,
+  "lat": 35.0162538,
+  "lon": 135.9632336,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "catholic",
+    "name": "草津カトリック教会",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 5395272648,
+  "lat": 34.7599227,
+  "lon": 134.8269024,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "日本基督教団 はりま平安教会",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 7215444903,
+  "lat": 26.1938762,
+  "lon": 127.6987100,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "protestant",
+    "email": "rinjinkyokai@ybb.ne.jp",
+    "fax": "+81 98-996-4531",
+    "name": "隣人キリスト教会",
+    "name:en": "Rinjin Neighborhood Christian Church",
+    "operator": "田中義弥",
+    "phone": "+81 98-996-4533",
+    "religion": "christian",
+    "service_times": "Su 10:30-12:00, 20:00-21:00",
+    "website": "http://rinjin777.jimdo.com",
+    "wheelchair": "limited"
+  }
+}
+
+  ]
+}

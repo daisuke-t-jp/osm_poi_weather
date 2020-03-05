@@ -18,6 +18,7 @@ import overpy
 OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'
 
 class POIType(enum.Enum):
+    church = 'church'
     station = 'station'
     townhall = 'townhall'
 
@@ -26,6 +27,7 @@ class OverpassMode(enum.Enum):
     server = 'server'
 
 LOCAL_OVERPASS_FILE =  {
+    POIType.church.value: 'overpass_master_building_church.json',
     POIType.station.value: 'osm_master_public_transport_station.json',
     POIType.townhall.value: 'osm_master_amenity_townhall.json',
 }
@@ -33,6 +35,12 @@ LOCAL_OVERPASS_FILE =  {
 # Overpass API query
 # reference : https://overpass-turbo.eu/
 OVERPASS_QUERY =  {
+    POIType.church.value: """
+                                        [out:json];
+                                        area["name"~"日本"];
+                                        node(area)["building"="church"];
+                                        out body;
+                                        """,
     POIType.station.value: """
                                         [out:json];
                                         area["name"~"日本"];
