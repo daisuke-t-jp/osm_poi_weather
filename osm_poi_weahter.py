@@ -18,7 +18,7 @@ from attrdict import AttrDict
 # Const, Enum
 # - - - - - - - - - - - - - - - - - - - -
 OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'
-
+    
 class POIType(enum.Enum):
     church = 'church'
     station = 'station'
@@ -99,34 +99,46 @@ def openweathermap_weather(api_key, lat, lon):
     return body
 
 
+def node2name(node):
+    name = 'N/A'
+    if 'name:ja' in node.tags.keys():
+        name = node.tags['name:ja']
+    elif 'name' in node.tags.keys():
+        name = node.tags['name']
+    elif 'name:en' in node.tags.keys():
+        name = node.tags['name:en']
+        
+    operator = ''
+    if 'operator' in node.tags.keys():
+        operator = node.tags['operator']
+        
+    if len(operator) > 0:
+        name = '{0}({1})'.format(name, operator)
+
+    return name
+    
+    
 def osm_poi_weather(poi_type, overpass_mode, openweahtermap_api_key):
     logging.debug('poi_type[{0}] overpass_mode[{1}]'.format(poi_type, overpass_mode))
 
+    # get nodes.
     nodes = overpass_nodes(poi_type, overpass_mode)
     
     logging.debug('nodes len[{0}]'.format(len(nodes)))
-
-    for node in nodes:
-        weather = openweathermap_weather(openweahtermap_api_key, node['lat'], node['lon'])
+    
+    for elm in nodes:
+        node = elm
+        if overpass_mode == OverpassMode.local.value:
+            node = AttrDict(elm)
         
-        name = 'N/A'
-        if 'name:ja' in node['tags'].keys():
-            name = node['tags']['name:ja']
-        elif 'name' in node['tags'].keys():
-            name = node['tags']['name']
-        elif 'name:en' in node['tags'].keys():
-            name = node['tags']['name:en']
+        # logging.debug('node tag[{0}]'.format(node.tags))
+        # get weather from node.
+        weather = openweathermap_weather(openweahtermap_api_key, node.lat, node.lon)
         
-        operator = ''
-        if 'operator' in node['tags'].keys():
-            operator = node['tags']['operator']
+        node_name = node2name(node)
         
-        name2 = name
-        if len(operator) > 0:
-            name2 = '{0}({1})'.format(name, operator)
-        
-        logging.debug('{0} -> {1}'.format(name2, weather))
-        time.sleep(1)   # OpenWeatherMap API free plan has limit that 60 requests in minute.
+        logging.debug('{0} -> {1}'.format(node_name, weather))
+        time.sleep(1.1)   # OpenWeatherMap API free plan has limit that 60 requests in minute.
 
     return
 
