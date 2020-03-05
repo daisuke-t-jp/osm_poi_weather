@@ -116,7 +116,7 @@ def osm_poi_weather(poi_type, overpass_mode, openweahtermap_api_key):
             name2 = '{0}({1})'.format(name, operator)
         
         logging.debug('{0} -> {1}'.format(name2, weather))
-        time.sleep(1)   # OpenWeatherMap API free plan has limit that 60 in minute.
+        time.sleep(1)   # OpenWeatherMap API free plan has limit that 60 requests in minute.
 
     return
 
