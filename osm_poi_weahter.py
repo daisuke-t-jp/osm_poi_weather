@@ -149,8 +149,8 @@ def main():
 
     # Check args.
     args = sys.argv
-    if len(args) < 4 :
-        logging.debug('invalid args.')
+    if len(args) < 4:
+        logging.debug('Too few arguments.')
         sys.exit()
         return
     
@@ -158,9 +158,9 @@ def main():
     overpass_mode = args[2]
     openweahtermap_api_key = args[3]
     
+ 
     # for api.openweathermap.org
     ssl._create_default_https_context = ssl._create_unverified_context
-    
     
     osm_poi_weather(poi_type, overpass_mode, openweahtermap_api_key)
 
