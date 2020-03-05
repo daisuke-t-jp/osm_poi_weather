@@ -11,6 +11,8 @@ import ssl
 import enum
 
 import overpy
+from attrdict import AttrDict
+
 
 # - - - - - - - - - - - - - - - - - - - -
 # Const, Enum
