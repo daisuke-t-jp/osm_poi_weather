@@ -18,88 +18,55 @@ from attrdict import AttrDict
 # Const, Enum
 # - - - - - - - - - - - - - - - - - - - -
 OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'
-    
-class POIType(enum.Enum):
-    church = 'church'
-    station = 'station'
-    townhall = 'townhall'
-
-class OverpassMode(enum.Enum):
-    local = 'local'
-    server = 'server'
-
-LOCAL_OVERPASS_FILE =  {
-    POIType.church.value: 'overpass_master_building_church.json',
-    POIType.station.value: 'osm_master_public_transport_station.json',
-    POIType.townhall.value: 'osm_master_amenity_townhall.json',
-}
-
-# Overpass API query
-# reference : https://overpass-turbo.eu/
-OVERPASS_QUERY =  {
-    POIType.church.value: """
-                                        [out:json];
-                                        area["name"~"日本"];
-                                        node(area)["building"="church"];
-                                        out body;
-                                        """,
-    POIType.station.value: """
-                                        [out:json];
-                                        area["name"~"日本"];
-                                        node(area)["public_transport"="station"];
-                                        out body;
-                                        """,
-    POIType.townhall.value: """
-                                        [out:json];
-                                        area["name"~"日本"];
-                                        node(area)["amenity"="townhall"];
-                                        out body;
-                                        """,
-}
+KEY_NAME = 'name'
+KEY_WEATHER = 'weather'
 
 
 
 # - - - - - - - - - - - - - - - - - - - -
-# Functions
+# Functions - Overpass
 # - - - - - - - - - - - - - - - - - - - -
-def overpass_nodes(poi_type, overpass_mode):
-    if overpass_mode == OverpassMode.local.value:
-        return overpass_json_from_local(poi_type)
-    if overpass_mode == OverpassMode.server.value:
-        return overpass_json_from_server(poi_type)
-    
-    return []
-
-
-def overpass_json_from_local(poi_type):
-    file = open(LOCAL_OVERPASS_FILE[poi_type], 'r')
+def overpass_nodes_from_local(file_path):
+    file = open(file_path, 'r')
     json_obj = json.load(file)
     file.close()
-    return json_obj["elements"]
+    
+    nodes = json_obj["elements"]
+    
+    return nodes
 
-# TODO
-def overpass_json_from_server(poi_type):
-    logging.debug('start overpass API')
+
+def overpass_nodes_from_server(query):
+    logging.debug('Start Overpass API')
 
     api = overpy.Overpass()
-    result = api.query(OVERPASS_QUERY[poi_type])
+    result = api.query(query)
     nodes = result.nodes
 
-    logging.debug('end overpass API')
+    logging.debug('End Overpass API')
 
     return nodes
 
 
+
+# - - - - - - - - - - - - - - - - - - - -
+# Functions - OpenWeatherMap
+# - - - - - - - - - - - - - - - - - - - -
 def openweathermap_weather(api_key, lat, lon):
     url = OPENWEATHERMAP_API.format(api_key, lat, lon)
-        
+    
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as resp:
         body = json.load(resp)
+    
     return body
 
 
-def node2name(node):
+
+# - - - - - - - - - - - - - - - - - - - -
+# Functions - Nodes
+# - - - - - - - - - - - - - - - - - - - -
+def node_name(node):
     name = 'N/A'
     if 'name:ja' in node.tags.keys():
         name = node.tags['name:ja']
@@ -118,51 +85,48 @@ def node2name(node):
     return name
     
     
-def osm_poi_weather(poi_type, overpass_mode, openweahtermap_api_key):
-    logging.debug('poi_type[{0}] overpass_mode[{1}]'.format(poi_type, overpass_mode))
-
-    # get nodes.
-    nodes = overpass_nodes(poi_type, overpass_mode)
-    
+def nodes_weather(is_local, nodes, openweahtermap_api_key):
     logging.debug('nodes len[{0}]'.format(len(nodes)))
     
-    for elm in nodes:
-        node = elm
-        if overpass_mode == OverpassMode.local.value:
-            node = AttrDict(elm)
+    res = []
+    
+    for node in nodes:
+        if is_local:
+            node = AttrDict(node)
         
-        # logging.debug('node tag[{0}]'.format(node.tags))
-        # get weather from node.
+        # Get weather from node.
         weather = openweathermap_weather(openweahtermap_api_key, node.lat, node.lon)
-        
+
+        # Create weather data.        
         node_name = node2name(node)
+        elm = {
+            KEY_NAME: node_name,
+            KEY_WEATHER: weather
+        }
+        res.append(elm)
         
-        logging.debug('{0} -> {1}'.format(node_name, weather))
+        logging.debug('elm{0}'.format(elm))
+        
         time.sleep(1.1)   # OpenWeatherMap API free plan has limit that 60 requests in minute.
-
-    return
-
-
-
-def main():
-    logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
-
-    # Check args.
-    args = sys.argv
-    if len(args) < 4:
-        logging.debug('Too few arguments.')
-        sys.exit()
-        return
     
-    poi_type = args[1]
-    overpass_mode = args[2]
-    openweahtermap_api_key = args[3]
-    
- 
-    # for api.openweathermap.org
-    ssl._create_default_https_context = ssl._create_unverified_context
-    
-    osm_poi_weather(poi_type, overpass_mode, openweahtermap_api_key)
+    return  res
 
-if __name__ == '__main__':
-    main()
+
+# - - - - - - - - - - - - - - - - - - - -
+# Functions - Weathers
+# - - - - - - - - - - - - - - - - - - - -
+def weathers_from_local_overpass_file(openweathermap_api_key, file_path):
+    logging.debug('file_path[{0}]'.format(file_path))
+    
+    nodes = overpass_nodes_from_local(file_path)
+    weathers = nodes_weather(true, nodes, openweathermap_api_key)
+
+    return weathers
+    
+def weathers_from_server(openweathermap_api_key, overpass_query):
+    logging.debug('overpass_query[{0}]'.format(overpass_query))
+    
+    nodes = overpass_nodes_from_local(file_path)
+    weathers = nodes_weather(true, nodes, openweathermap_api_key)
+
+    return weathers
