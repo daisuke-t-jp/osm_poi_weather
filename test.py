@@ -17,45 +17,53 @@ OPENWEATHERMAP_API_KEY = '<YOU MUST BE SET>'
 
 
 # - - - - - - - - - - - - - - - - - - - -
-# Functions
+# Functions - Tests
 # - - - - - - - - - - - - - - - - - - - -
-def test_local():
-    overpass_weahter.weathers_from_local_overpass_file(OPENWEATHERMAP_API_KEY, 'overpass_master_building_church.json')
-    # overpass_weahter.weathers_from_local_overpass_file(OPENWEATHERMAP_API_KEY, 'overpass_master_amenity_townhall.json')
-    # overpass_weahter.weathers_from_local_overpass_file(OPENWEATHERMAP_API_KEY, 'overpass_master_public_transport_station.json')
-    return
-
-
-def test_server():
-    overpass_weahter.weathers_from_server(OPENWEATHERMAP_API_KEY, """
+def test_overpass_api():
+    overpass_weahter.weathers_with_overpass_api("""
                                         [out:json];
                                         area["name"~"日本"];
                                         node(area)["building"="church"];
                                         out body;
-                                        """)
-    return
-'''
-    overpass_weahter.weathers_from_server(OPENWEATHERMAP_API_KEY, """
+                                        """,
+                                        OPENWEATHERMAP_API_KEY,)
+
+    '''
+    overpass_weahter.weathers_with_overpass_api("""
                                         [out:json];
                                         area["name"~"日本"];
                                         node(area)["amenity"="townhall"];
                                         out body;
-                                        """)
+                                        """,
+                                        OPENWEATHERMAP_API_KEY)
 
-    overpass_weahter.weathers_from_server(OPENWEATHERMAP_API_KEY, """
+    overpass_weahter.weathers_with_overpass_api("""
                                         [out:json];
                                         area["name"~"日本"];
                                         node(area)["public_transport"="station"];
                                         out body;
-                                        """)
-'''
+                                        """,
+                                        OPENWEATHERMAP_API_KEY)
+    '''
+    return
 
 
+def test_overpass_file():
+    weathers = overpass_weahter.weathers_with_overpass_file('overpass_master_building_church.json', OPENWEATHERMAP_API_KEY)
+    # overpass_weahter.weathers_with_overpass_file('overpass_master_amenity_townhall.json', OPENWEATHERMAP_API_KEY)
+    # overpass_weahter.weathers_with_overpass_file('overpass_master_public_transport_station.json', OPENWEATHERMAP_API_KEY)
+    return
+
+
+
+# - - - - - - - - - - - - - - - - - - - -
+# Functions - Main
+# - - - - - - - - - - - - - - - - - - - -
 def main():
     logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
-    
-    test_local()
-    test_server()
+        
+    test_overpass_api()
+    test_overpass_file()
     
 if __name__ == '__main__':
     main()
