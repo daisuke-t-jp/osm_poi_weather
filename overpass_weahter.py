@@ -88,7 +88,9 @@ def _node_name_from_node(node):
     
 
 def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_api_interval):
+    ssl_create_default_context = ssl._create_default_https_context
     ssl._create_default_https_context = ssl._create_unverified_context
+    
     res = []
     
     for node in nodes:
@@ -110,7 +112,9 @@ def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_
         
         # OpenWeatherMap API free plan has limit that 60 requests in minute.
         time.sleep(openweathermap_api_interval)
-
+    
+    ssl._create_default_https_context = ssl_create_default_context
+    
     return  res
 
 
