@@ -35,14 +35,10 @@ class _OverpassMode(enum.Enum):
 # Functions - Overpass
 # - - - - - - - - - - - - - - - - - - - -
 def _overpass_nodes_from_server(query):
-    logging.debug('Start Overpass API')
-
     api = overpy.Overpass()
     result = api.query(query)
     nodes = result.nodes
-
-    logging.debug('End Overpass API')
-
+    
     return nodes
 
 
@@ -92,8 +88,6 @@ def _node_name_from_node(node):
     
 
 def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_api_interval):
-    logging.debug('nodes len[{0}]'.format(len(nodes)))
-
     ssl._create_default_https_context = ssl._create_unverified_context
     res = []
     
@@ -125,7 +119,7 @@ def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_
 # Functions - Weathers
 # - - - - - - - - - - - - - - - - - - - -
 def weathers_with_overpass_api(overpass_query, openweathermap_api_key, openweathermap_api_interval=_OPENWEATHERMAP_API_INTERVAL_DEFAULT):
-    logging.debug('overpass_query[{0}]'.format(overpass_query))
+    # logging.debug('overpass_query[{0}]'.format(overpass_query))
     
     nodes = _overpass_nodes_from_server(overpass_query)
     weathers = _nodes_weather(_OverpassMode.api, nodes, openweathermap_api_key, openweathermap_api_interval)
@@ -134,7 +128,7 @@ def weathers_with_overpass_api(overpass_query, openweathermap_api_key, openweath
 
 
 def weathers_with_overpass_file(overpass_file_path, openweathermap_api_key, openweathermap_api_interval=_OPENWEATHERMAP_API_INTERVAL_DEFAULT):
-    logging.debug('file_path[{0}]'.format(overpass_file_path))
+    # logging.debug('file_path[{0}]'.format(overpass_file_path))
     
     nodes = _overpass_nodes_from_file(overpass_file_path)
     weathers = _nodes_weather(_OverpassMode.file, nodes, openweathermap_api_key, openweathermap_api_interval)
