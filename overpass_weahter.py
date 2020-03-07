@@ -19,6 +19,7 @@ from attrdict import AttrDict
 # - - - - - - - - - - - - - - - - - - - -
 _OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'   # Reference: https://openweathermap.org/current
 _OPENWEATHERMAP_API_INTERVAL_DEFAULT = 1.1   # seconds
+
 KEY_NAME = 'name'
 KEY_LAT = 'lat'
 KEY_LON = 'lon'
