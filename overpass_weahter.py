@@ -21,6 +21,9 @@ OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&
 KEY_NAME = 'name'
 KEY_WEATHER = 'weather'
 
+class OverpassMode(enum.Enum):
+    local       = 1
+    server    = 2
 
 
 # - - - - - - - - - - - - - - - - - - - -
@@ -66,7 +69,7 @@ def openweathermap_weather(api_key, lat, lon):
 # - - - - - - - - - - - - - - - - - - - -
 # Functions - Nodes
 # - - - - - - - - - - - - - - - - - - - -
-def node_name(node):
+def node_name_from_node(node):
     name = 'N/A'
     if 'name:ja' in node.tags.keys():
         name = node.tags['name:ja']
@@ -85,20 +88,21 @@ def node_name(node):
     return name
     
     
-def nodes_weather(is_local, nodes, openweahtermap_api_key):
+def nodes_weather(overpass_mode, nodes, openweahtermap_api_key):
     logging.debug('nodes len[{0}]'.format(len(nodes)))
-    
+
+    ssl._create_default_https_context = ssl._create_unverified_context
     res = []
     
     for node in nodes:
-        if is_local:
+        if overpass_mode == OverpassMode.local:
             node = AttrDict(node)
         
         # Get weather from node.
         weather = openweathermap_weather(openweahtermap_api_key, node.lat, node.lon)
 
         # Create weather data.        
-        node_name = node2name(node)
+        node_name = node_name_from_node(node)
         elm = {
             KEY_NAME: node_name,
             KEY_WEATHER: weather
@@ -119,14 +123,14 @@ def weathers_from_local_overpass_file(openweathermap_api_key, file_path):
     logging.debug('file_path[{0}]'.format(file_path))
     
     nodes = overpass_nodes_from_local(file_path)
-    weathers = nodes_weather(true, nodes, openweathermap_api_key)
+    weathers = nodes_weather(OverpassMode.local, nodes, openweathermap_api_key)
 
     return weathers
     
 def weathers_from_server(openweathermap_api_key, overpass_query):
     logging.debug('overpass_query[{0}]'.format(overpass_query))
     
-    nodes = overpass_nodes_from_local(file_path)
-    weathers = nodes_weather(true, nodes, openweathermap_api_key)
+    nodes = overpass_nodes_from_server(overpass_query)
+    weathers = nodes_weather(OverpassMode.server, nodes, openweathermap_api_key)
 
     return weathers
