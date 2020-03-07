@@ -57,7 +57,7 @@ def _overpass_nodes_from_file(file_path):
 # Functions - OpenWeatherMap
 # - - - - - - - - - - - - - - - - - - - -
 def _openweathermap_weather(api_key, lat, lon):
-    url = OPENWEATHERMAP_API.format(api_key, lat, lon)
+    url = _OPENWEATHERMAP_API.format(api_key, lat, lon)
 
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as resp:
@@ -96,11 +96,11 @@ def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_
     res = []
     
     for node in nodes:
-        if overpass_mode == OverpassMode.local:
+        if overpass_mode == OverpassMode.file:
             node = AttrDict(node)
         
         # Get weather from node.
-        weather = openweathermap_weather(openweahtermap_api_key, node.lat, node.lon)
+        weather = _openweathermap_weather(openweahtermap_api_key, node.lat, node.lon)
 
         # Create weather data.        
         node_name = _node_name_from_node(node)
