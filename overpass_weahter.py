@@ -17,12 +17,15 @@ from attrdict import AttrDict
 # - - - - - - - - - - - - - - - - - - - -
 # Const, Enum
 # - - - - - - - - - - - - - - - - - - - -
-_OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'
+_OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'   # Reference: https://openweathermap.org/current
 _OPENWEATHERMAP_API_INTERVAL_DEFAULT = 1.1   # seconds
 KEY_NAME = 'name'
-KEY_WEATHER = 'weather'
+KEY_LAT = 'lat'
+KEY_LON = 'lon'
+KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA = 'openweathermap_current_weather_data'
 
-class OverpassMode(enum.Enum):
+
+class _OverpassMode(enum.Enum):
     api  = 1
     file  = 2
 
@@ -96,7 +99,7 @@ def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_
     res = []
     
     for node in nodes:
-        if overpass_mode == OverpassMode.file:
+        if overpass_mode == _OverpassMode.file:
             node = AttrDict(node)
         
         # Get weather from node.
@@ -106,7 +109,9 @@ def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_
         node_name = _node_name_from_node(node)
         elm = {
             KEY_NAME: node_name,
-            KEY_WEATHER: weather
+            KEY_LAT: node.lat,
+            KEY_LON: node.lon,
+            KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA: weather,
         }
         res.append(elm)
         
@@ -124,7 +129,7 @@ def weathers_with_overpass_api(overpass_query, openweathermap_api_key, openweath
     logging.debug('overpass_query[{0}]'.format(overpass_query))
     
     nodes = _overpass_nodes_from_server(overpass_query)
-    weathers = _nodes_weather(OverpassMode.api, nodes, openweathermap_api_key, openweathermap_api_interval)
+    weathers = _nodes_weather(_OverpassMode.api, nodes, openweathermap_api_key, openweathermap_api_interval)
 
     return weathers
 
@@ -133,7 +138,7 @@ def weathers_with_overpass_file(overpass_file_path, openweathermap_api_key, open
     logging.debug('file_path[{0}]'.format(overpass_file_path))
     
     nodes = _overpass_nodes_from_file(overpass_file_path)
-    weathers = _nodes_weather(OverpassMode.file, nodes, openweathermap_api_key, openweathermap_api_interval)
+    weathers = _nodes_weather(_OverpassMode.file, nodes, openweathermap_api_key, openweathermap_api_interval)
 
     return weathers
 
