@@ -1,0 +1,993 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.56.2 b688b00f",
+  "osm3s": {
+    "timestamp_osm_base": "2020-03-07T21:20:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 100090862,
+  "lat": 47.7600646,
+  "lon": 8.1300061,
+  "tags": {
+    "addr:city": "St. Blasien",
+    "addr:country": "DE",
+    "addr:housenumber": "16",
+    "addr:postcode": "79837",
+    "addr:street": "Fürstabt-Gerbert-Straße",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Dom St. Blasien",
+    "opening_hours": "Oct-Feb 08:30-17:00; Mar-Sep 08:00-18:30",
+    "phone": "+49 7672 678",
+    "religion": "christian",
+    "website": "https://www.dom-st-blasien.de/",
+    "wheelchair": "yes",
+    "wikidata": "Q532367",
+    "wikipedia": "de:Kloster St. Blasien (Schwarzwald)"
+  }
+},
+{
+  "type": "node",
+  "id": 262567942,
+  "lat": 4.5978998,
+  "lon": -74.0751863,
+  "tags": {
+    "addr:country": "CO",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Catedral Primada de Bogotá",
+    "religion": "christian",
+    "wheelchair": "no",
+    "wikidata": "Q2942872",
+    "wikipedia": "es:Catedral primada de Colombia"
+  }
+},
+{
+  "type": "node",
+  "id": 474375860,
+  "lat": 50.9799235,
+  "lon": 39.3167911,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "russian_orthodox",
+    "name": "Собор Успения Пресвятой Богородицы",
+    "ref:temples.ru": "12710",
+    "religion": "christian",
+    "start_date": "1880-1886"
+  }
+},
+{
+  "type": "node",
+  "id": 592838468,
+  "lat": 4.8092301,
+  "lon": -74.3537103,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 595163497,
+  "lat": -26.0728623,
+  "lon": -65.9770669,
+  "tags": {
+    "addr:city": "Cafayate",
+    "addr:street": "Nuestra Señora del Rosario",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Catedral Nuestra Señora del Rosario",
+    "religion": "christian",
+    "wikidata": "Q2942268",
+    "wikipedia": "es:Catedral de Nuestra Señora del Rosario (Cafayate)"
+  }
+},
+{
+  "type": "node",
+  "id": 690282650,
+  "lat": 58.0124936,
+  "lon": 56.2170244,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "russian_orthodox",
+    "name": "Собор Троицы Живоначальной",
+    "ref:temples.ru": "9442",
+    "religion": "christian",
+    "start_date": "1842..1857"
+  }
+},
+{
+  "type": "node",
+  "id": 965989372,
+  "lat": -18.9199207,
+  "lon": -48.2778352,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Catedral Santa Terezinha",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 1030403705,
+  "lat": 51.2651026,
+  "lon": 37.5130664,
+  "tags": {
+    "alt_name": "Спасо-Преображенский собор",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "russian_orthodox",
+    "name": "Собор Преображения Господня",
+    "ref:temples.ru": "4631",
+    "religion": "christian",
+    "start_date": "1992-1996"
+  }
+},
+{
+  "type": "node",
+  "id": 1082907120,
+  "lat": -17.9692623,
+  "lon": -67.1136199,
+  "tags": {
+    "addr:city": "Oruro",
+    "addr:street": "Calle Adolfo Mier",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Catedral de Oruro",
+    "religion": "christian",
+    "source": "bing"
+  }
+},
+{
+  "type": "node",
+  "id": 1219001489,
+  "lat": 8.6316421,
+  "lon": -70.2092913,
+  "tags": {
+    "addr:city": "Parroquia Barinas",
+    "addr:postcode": "5201",
+    "addr:street": "Av. 9 Briceño Mendez",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "designation": "Church",
+    "name": "Catedral de Barinas Nuestra Señora del Pilar",
+    "note": "Catedral de Barinas Nuestra Señora del Pilar",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 1295744319,
+  "lat": -3.7664417,
+  "lon": 29.6838351,
+  "tags": {
+    "alt_name": "St. Pierre",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "anglican",
+    "name": "Eglise Anglicane",
+    "name:de": "Anglikanische Kirche",
+    "name:en": "Anglican Church",
+    "name:fr": "Eglise Anglicane",
+    "official_name": "Cathédrale St. Pierre",
+    "religion": "christian",
+    "service_times": "Sunday 9.30 am"
+  }
+},
+{
+  "type": "node",
+  "id": 1513499239,
+  "lat": -27.3461016,
+  "lon": -65.5933677,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 1682725363,
+  "lat": -16.7252559,
+  "lon": -43.8631322,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Catedral Nossa Senhora Aparecida",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 1695206954,
+  "lat": 18.8495085,
+  "lon": -97.1050243,
+  "tags": {
+    "addr:city": "Orizaba, Veracruz",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Catedral San Miguel Arcángel",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 1928452966,
+  "lat": 2.5721156,
+  "lon": -72.6419952,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2116854373,
+  "lat": -28.3051037,
+  "lon": -54.2617258,
+  "tags": {
+    "alt_name": "Catedral Angelopolitana",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "historic": "yes",
+    "name": "Catedral de Santo Ângelo",
+    "note": "POR FAVOR: NO BORRAR ESTE NODO; pertenece a la relación completa de 30 pueblos; en caso de problema, contactar autor / Please: do not remove this node: it's member of a relation; if happen a problem, contact author",
+    "official_name": "Santo Anjo da Guarda",
+    "religion": "christian",
+    "start_date": "1706",
+    "tourism": "attraction",
+    "website": "http://www.diocesedesantoangelo.org.br/",
+    "wikidata": "Q930685",
+    "wikipedia": "pt:Catedral Angelopolitana"
+  }
+},
+{
+  "type": "node",
+  "id": 2337418196,
+  "lat": -12.8627559,
+  "lon": -72.6930115,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Iglesia",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2636064580,
+  "lat": -14.6776594,
+  "lon": -52.3532682,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2661555924,
+  "lat": -21.5241671,
+  "lon": -42.2064081,
+  "tags": {
+    "addr:city": "SANTO ANTONIO DE PADUA",
+    "addr:housenumber": "S/N",
+    "addr:postcode": "28470000",
+    "addr:street": "RUA SAO PADRE PIO",
+    "addr:suburb": "LOTEAMENTO ALVINHO",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "IGREJA NOSSA SENHORA DAS GRAÇAS",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2710171063,
+  "lat": 31.7657488,
+  "lon": -106.4928497,
+  "tags": {
+    "addr:city": "El Paso",
+    "addr:housenumber": "1118",
+    "addr:postcode": "79902",
+    "addr:street": "North Mesa Street",
+    "building": "cathedral",
+    "name": "Saint Patrick's Cathedral"
+  }
+},
+{
+  "type": "node",
+  "id": 2710911176,
+  "lat": 31.7761654,
+  "lon": 35.2307829,
+  "tags": {
+    "addr:city": "Jerusalem",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "syriac_orthodox",
+    "fixme": "name, name:en mismatch. Flagged by SafwatHalaby_bot-nameCopy. name, name:en mismatch. Flagged by SafwatHalaby_bot-nameCopy",
+    "name": "Dayro d-Mor Marqos",
+    "name:de": "Markuskloster",
+    "name:en": "St. Mark's Monastery",
+    "name:ro": "Mănăstirea siriacă „Sf. Marc”",
+    "religion": "christian",
+    "website": "http://sor.cua.edu/ChMon/HLand/YerusalemSMark.html"
+  }
+},
+{
+  "type": "node",
+  "id": 2789636744,
+  "lat": 19.2969849,
+  "lon": -70.2589381,
+  "tags": {
+    "addr:city": "SAN FRANCISCO DE MACORIS",
+    "addr:street": "Colon",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "name": "Iglesia Santa Ana",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2800251731,
+  "lat": 5.4562744,
+  "lon": -1.1578341,
+  "tags": {
+    "building": "cathedral",
+    "name": "Catholic Church"
+  }
+},
+{
+  "type": "node",
+  "id": 2884630493,
+  "lat": -18.1956451,
+  "lon": -40.2635314,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2935954820,
+  "lat": 5.9132824,
+  "lon": 0.9912877,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "St. Michael Co-Cathedral",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2937519063,
+  "lat": 44.5438881,
+  "lon": 34.2829170,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "russian_orthodox",
+    "name": "Свято-Успенский собор",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2941304995,
+  "lat": 0.8115118,
+  "lon": -77.7181605,
+  "tags": {
+    "addr:housename": "Catedral de Tulcán",
+    "addr:street": "Sucre",
+    "building": "cathedral",
+    "name": "Catedral de Tulcán",
+    "note": "De estilo Neoclásico. Dada la esbeltez de las pilastras intermedias, proyecta pequeños contrafuertes hacia el exterior. Existe una diversidad de estilos en las construcciones de los alrededores entre ellos: republicano, moderno y tradicional."
+  }
+},
+{
+  "type": "node",
+  "id": 3050848797,
+  "lat": -15.4089367,
+  "lon": 35.3078700,
+  "tags": {
+    "building": "cathedral",
+    "name": "Zomba Cathedrel"
+  }
+},
+{
+  "type": "node",
+  "id": 3190998893,
+  "lat": 5.7911679,
+  "lon": -75.7866168,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Catedral Nuestra Señora de las Mercedes",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3235690524,
+  "lat": 20.4397331,
+  "lon": 75.6075128,
+  "tags": {
+    "building": "cathedral",
+    "name": "hanuman mandir"
+  }
+},
+{
+  "type": "node",
+  "id": 3235693328,
+  "lat": 20.4418474,
+  "lon": 75.6075728,
+  "tags": {
+    "building": "cathedral",
+    "name": "maradada aai"
+  }
+},
+{
+  "type": "node",
+  "id": 3235698572,
+  "lat": 20.4474027,
+  "lon": 75.5937364,
+  "tags": {
+    "building": "cathedral",
+    "name": "raneshwor mandi rॐ"
+  }
+},
+{
+  "type": "node",
+  "id": 3338658404,
+  "lat": -0.7230001,
+  "lon": 8.7860863,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "name": "Cathédrale Saint-Louis",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3590859117,
+  "lat": 8.5628103,
+  "lon": 0.9783867,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Eglise Catholique de Sotouboua",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3617492359,
+  "lat": 46.0395499,
+  "lon": 26.3000791,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "orthodox",
+    "name": "Biserica Ordodoxă Sfântul Ioan Botezătorul",
+    "name:hu": "Keresztelő Szent János Ortodox templom",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3622392467,
+  "lat": 21.8004417,
+  "lon": -100.7356846,
+  "tags": {
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Ntra. Señora de la Asunción"
+  }
+},
+{
+  "type": "node",
+  "id": 3661014560,
+  "lat": -9.6590179,
+  "lon": -36.9995130,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3666285858,
+  "lat": -14.5245523,
+  "lon": -49.1409261,
+  "tags": {
+    "building": "cathedral",
+    "name": "Catedral de Uruaçu"
+  }
+},
+{
+  "type": "node",
+  "id": 3672991739,
+  "lat": -26.1463140,
+  "lon": -53.0279299,
+  "tags": {
+    "building": "cathedral",
+    "name": "Catedral Marmeleiro"
+  }
+},
+{
+  "type": "node",
+  "id": 3682112607,
+  "lat": 45.1565520,
+  "lon": 26.8208288,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "orthodox",
+    "name": "Catedrala Episcopală Înălțarea Domnului",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3700516361,
+  "lat": 16.6930980,
+  "lon": 107.3973449,
+  "tags": {
+    "building": "cathedral",
+    "name": "Họ Bùi Viết"
+  }
+},
+{
+  "type": "node",
+  "id": 3707304378,
+  "lat": 7.4192402,
+  "lon": 3.9007145,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "anglican",
+    "name": "All Souls Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3707936475,
+  "lat": 48.1838502,
+  "lon": 26.2058294,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "russian_orthodox",
+    "name": "Свято-Троїцький собор",
+    "name:ru": "Свято-Троицкий собор",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3719880993,
+  "lat": 16.1963150,
+  "lon": 121.2368232,
+  "tags": {
+    "building": "cathedral",
+    "name": "St. Joseph Parish"
+  }
+},
+{
+  "type": "node",
+  "id": 3735263626,
+  "lat": -33.7460698,
+  "lon": -61.9670549,
+  "tags": {
+    "addr:city": "Venado Tuerto",
+    "addr:postcode": "S2600",
+    "addr:street": "25 de Mayo",
+    "building": "cathedral",
+    "name": "Catedral"
+  }
+},
+{
+  "type": "node",
+  "id": 3751532912,
+  "lat": 16.6967600,
+  "lon": 107.3986180,
+  "tags": {
+    "building": "cathedral",
+    "name": "Miếu Âm Hồn Đội 1"
+  }
+},
+{
+  "type": "node",
+  "id": 3774626764,
+  "lat": 48.7944238,
+  "lon": 132.9279776,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "orthodox",
+    "name": "Благовещенский кафедральный собор",
+    "religion": "christian",
+    "toilets:wheelchair": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 3777710160,
+  "lat": 40.0188938,
+  "lon": 116.3306036,
+  "tags": {
+    "building": "cathedral",
+    "name": "北京天主教神哲学院"
+  }
+},
+{
+  "type": "node",
+  "id": 3822094268,
+  "lat": 0.0847498,
+  "lon": -76.8828272,
+  "tags": {
+    "building": "cathedral",
+    "name": "Iglesia Central"
+  }
+},
+{
+  "type": "node",
+  "id": 3825068631,
+  "lat": 0.6365961,
+  "lon": 30.2682146,
+  "tags": {
+    "building": "cathedral",
+    "name": "Virika Cathedral of Our Lady of Snows"
+  }
+},
+{
+  "type": "node",
+  "id": 3840906852,
+  "lat": 16.6937259,
+  "lon": 107.3935108,
+  "tags": {
+    "building": "cathedral",
+    "name": "Miếu Đôi - Nghè Văn Thánh"
+  }
+},
+{
+  "type": "node",
+  "id": 3840908124,
+  "lat": 16.6938932,
+  "lon": 107.3993181,
+  "tags": {
+    "building": "cathedral",
+    "name": "Miếu Vàng"
+  }
+},
+{
+  "type": "node",
+  "id": 3929784308,
+  "lat": 5.2113259,
+  "lon": -3.7566181,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Place du Saint-Esprit",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 3966614666,
+  "lat": 5.5835348,
+  "lon": -73.5417542,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Iglesia Doctrinera Sáchica",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 4081448791,
+  "lat": 35.1736876,
+  "lon": 33.3576926,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "maronite",
+    "name": "Our Lady Of Graces",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 4143884392,
+  "lat": 3.5271558,
+  "lon": -76.3005978,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Catedral",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 4187311989,
+  "lat": 17.4349312,
+  "lon": 78.5001307,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "anglican",
+    "name": "Thomas Cathedral",
+    "name:en": "Thomas Cathedral",
+    "name:te": "థామస్ కేథడ్రాల్",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 4418675494,
+  "lat": 8.1407810,
+  "lon": -5.0923286,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Cathédrale de Katiola",
+    "religion": "christian",
+    "source": "survery bing"
+  }
+},
+{
+  "type": "node",
+  "id": 4715254408,
+  "lat": -15.3800185,
+  "lon": 28.2403269,
+  "tags": {
+    "amenity": "pharmacy",
+    "building": "cathedral",
+    "building:levels": "1",
+    "building:material": "cement_block",
+    "name": "Vinny Focal Point"
+  }
+},
+{
+  "type": "node",
+  "id": 4840460332,
+  "lat": -22.8170436,
+  "lon": -45.1920968,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Catedral de Santo Antônio",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 4929934457,
+  "lat": -0.7317633,
+  "lon": 8.7758381,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "name": "Cathédrale Saint-Paul des Bois"
+  }
+},
+{
+  "type": "node",
+  "id": 5116430792,
+  "lat": 10.9033434,
+  "lon": 123.5151453,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Vito Church",
+    "religion": "christian",
+    "tourism": "attraction"
+  }
+},
+{
+  "type": "node",
+  "id": 5139803155,
+  "lat": 54.8536283,
+  "lon": 46.5951633,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "russian_orthodox",
+    "name": "Собор Успения Пресвятой Богородицы",
+    "ref:temples.ru": "24878",
+    "religion": "christian",
+    "start_date": "1-я пол. 2010-х"
+  }
+},
+{
+  "type": "node",
+  "id": 5273999524,
+  "lat": 14.5548575,
+  "lon": -17.1103528,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "name": "Sanctuaire Marial de Popenguine",
+    "religion": "christian",
+    "shop": "newsagent"
+  }
+},
+{
+  "type": "node",
+  "id": 5463109642,
+  "lat": -1.4314646,
+  "lon": -79.2791217,
+  "tags": {
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "San Vicente Ferrer",
+    "religion": "christian",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5547609551,
+  "lat": 7.6881459,
+  "lon": -5.0285827,
+  "tags": {
+    "addr:city": "Bouaké",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Cathédrale Sainte-Thérèse de l'enfant Jesus",
+    "project:anr_cohesion_bouake": "yes",
+    "religion": "christian",
+    "source": "survey",
+    "source:date": "2018-04-06"
+  }
+},
+{
+  "type": "node",
+  "id": 5600454923,
+  "lat": -14.0412473,
+  "lon": 34.1049236,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "presbyterian",
+    "name": "Nkhoma Mission",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 5922743586,
+  "lat": -34.8685276,
+  "lon": -56.2047477,
+  "tags": {
+    "addr:city": "Montevideo",
+    "addr:country": "UY",
+    "addr:housenumber": "3325",
+    "addr:street": "Avenida 19 de Abril",
+    "addr:suburb": "Prado",
+    "alt_name": "Catedral Católica Armenia Nuestra Señora de Bzommar",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Catedral de Nuestra Señora de Bzommar",
+    "name:en": "Armenian Catholic Church",
+    "religion": "christian",
+    "wikidata": "Q15188728",
+    "wikipedia": "es:Catedral de Nuestra Señora de Bzommar (Montevideo)"
+  }
+},
+{
+  "type": "node",
+  "id": 6031763322,
+  "lat": -5.9482561,
+  "lon": 29.1962340,
+  "tags": {
+    "addr:city": "Kalemie",
+    "addr:country": "CD",
+    "addr:district": "Kalemie",
+    "addr:province": "Tanganyika",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "name": "Cathedral",
+    "religion": "christian",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6298424461,
+  "lat": 37.8834165,
+  "lon": 112.5559855,
+  "tags": {
+    "addr:housenumber": "174",
+    "addr:street": "解放路",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "圣母无原罪主教座堂",
+    "name:en": "Cathedral of the Immaculate Conception",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 6591441507,
+  "lat": 31.1974548,
+  "lon": 29.8942083,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "anglican",
+    "name": "Saint Mark Anglican Spro-Cathedral",
+    "name:en": "Saint Mark Anglican Spro-Cathedral",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 6914476130,
+  "lat": 10.1213890,
+  "lon": 76.1987669,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "name": "St Johns Jacobite Syrian Church Ayyampilly",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 7088304868,
+  "lat": 53.9594908,
+  "lon": 20.3649235,
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "catholic",
+    "religion": "christian"
+  }
+}
+
+  ]
+}
