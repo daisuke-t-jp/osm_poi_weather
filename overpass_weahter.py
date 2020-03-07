@@ -47,12 +47,10 @@ def _overpass_nodes_from_server(query):
 
 
 def _overpass_nodes_from_file(file_path):
-    file = open(file_path, 'r')
-    json_obj = json.load(file)
-    file.close()
+    with open(file_path, 'r') as file:
+        json_obj = json.load(file)
+        nodes = json_obj["elements"]
     
-    nodes = json_obj["elements"]
-
     return nodes
 
 
