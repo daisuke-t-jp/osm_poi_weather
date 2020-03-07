@@ -5,6 +5,7 @@ import sys
 import logging
 import enum
 
+sys.path.append('../')
 import overpass_weahter
 
 
@@ -20,7 +21,6 @@ OPENWEATHERMAP_API_KEY = '<YOU MUST BE SET>'
 # Functions - Tests
 # - - - - - - - - - - - - - - - - - - - -
 def test_overpass_api():
-    weathers = overpass_weahter.weathers_with_overpass_api("""
     try:
         weathers = overpass_weahter.weathers_with_overpass_api("""
                                             [out:json];
@@ -53,13 +53,15 @@ def test_overpass_api():
                                             0.1)
         '''
         for weather in weathers:
+            openweathermap_weather = overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]
+            
             logging.debug('name[{0}] lat[{1}] lon[{2}] temp[{3}] pressure[{4}] humidity[{5}]'.format(
                 weather[overpass_weahter.KEY_NAME],
                 weather[overpass_weahter.KEY_LAT],
                 weather[overpass_weahter.KEY_LON],
-                weather[overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]['main']['temp'],
-                weather[overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]['main']['pressure'],
-                weather[overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]['main']['humidity']))
+                weather[openweathermap_weather['main']['temp'],
+                weather[openweathermap_weather['main']['pressure'],
+                weather[openweathermap_weather['main']['humidity']))
             
     except Exception as exp: 
         logging.error('exception {0}'.format(exp))
@@ -69,16 +71,19 @@ def test_overpass_api():
 
 def test_overpass_file():
     try:
-        weathers = overpass_weahter.weathers_with_overpass_file('voverpass_japan_building_church.json', OPENWEATHERMAP_API_KEY, 0.1)
+        weathers = overpass_weahter.weathers_with_overpass_file('voverpass_japan_building_church.json',
+            OPENWEATHERMAP_API_KEY, 0.1)
 
         for weather in weathers:
+            openweathermap_weather = overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]
+            
             logging.debug('name[{0}] lat[{1}] lon[{2}] temp[{3}] pressure[{4}] humidity[{5}]'.format(
                 weather[overpass_weahter.KEY_NAME],
                 weather[overpass_weahter.KEY_LAT],
                 weather[overpass_weahter.KEY_LON],
-                weather[overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]['main']['temp'],
-                weather[overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]['main']['pressure'],
-                weather[overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]['main']['humidity']))
+                weather[openweathermap_weather['main']['temp'],
+                weather[openweathermap_weather['main']['pressure'],
+                weather[openweathermap_weather['main']['humidity']))
     except Exception as exp: 
         logging.error('exception {0}'.format(exp))
     # weathers = overpass_weahter.weathers_with_overpass_file('overpass_japan_amenity_townhall.json', OPENWEATHERMAP_API_KEY, 0.1)
