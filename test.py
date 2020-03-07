@@ -20,6 +20,7 @@ OPENWEATHERMAP_API_KEY = '<YOU MUST BE SET>'
 # Functions - Tests
 # - - - - - - - - - - - - - - - - - - - -
 def test_overpass_api():
+    # TODO: Dump weathers.
     overpass_weahter.weathers_with_overpass_api("""
                                         [out:json];
                                         area["name"~"日本"];
@@ -49,6 +50,7 @@ def test_overpass_api():
 
 
 def test_overpass_file():
+    # TODO: Dump weathers.
     weathers = overpass_weahter.weathers_with_overpass_file('overpass_master_building_church.json', OPENWEATHERMAP_API_KEY)
     # overpass_weahter.weathers_with_overpass_file('overpass_master_amenity_townhall.json', OPENWEATHERMAP_API_KEY)
     # overpass_weahter.weathers_with_overpass_file('overpass_master_public_transport_station.json', OPENWEATHERMAP_API_KEY)
