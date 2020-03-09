@@ -125,7 +125,7 @@ def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_
 
 
 # - - - - - - - - - - - - - - - - - - - -
-# Functions - Weathers
+# Functions - Public
 # - - - - - - - - - - - - - - - - - - - -
 def weathers_with_overpass_api(overpass_query, openweathermap_api_key, openweathermap_api_interval=_OPENWEATHERMAP_API_INTERVAL_DEFAULT):
     # logging.debug('overpass_query[{0}]'.format(overpass_query))
