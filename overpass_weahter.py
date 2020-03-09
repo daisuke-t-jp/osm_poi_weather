@@ -20,6 +20,8 @@ from attrdict import AttrDict
 _OPENWEATHERMAP_API = 'https://api.openweathermap.org/data/2.5/weather?appid={0}&lat={1}&lon={2}'   # Reference: https://openweathermap.org/current
 _OPENWEATHERMAP_API_INTERVAL_DEFAULT = 1.1   # seconds
 
+KEY_OSM = 'osm'
+KEY_ID = 'id'
 KEY_NAME = 'name'
 KEY_LAT = 'lat'
 KEY_LON = 'lon'
@@ -103,9 +105,12 @@ def _nodes_weather(overpass_mode, nodes, openweahtermap_api_key, openweathermap_
         # Create weather data.        
         node_name = _node_name_from_node(node)
         elm = {
-            KEY_NAME: node_name,
-            KEY_LAT: node.lat,
-            KEY_LON: node.lon,
+            KEY_OSM: {
+                KEY_ID: node.id,
+                KEY_NAME: node_name,
+                KEY_LAT: node.lat,
+                KEY_LON: node.lon,
+            },
             KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA: weather,
         }
         res.append(elm)
