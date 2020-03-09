@@ -21,12 +21,14 @@ OPENWEATHERMAP_API_KEY = '<YOU MUST BE SET>'
 # Functions - Tests
 # - - - - - - - - - - - - - - - - - - - -
 def test_dump_weather(weather):
+    osm = weather[overpass_weahter.KEY_OSM]
     openweathermap_weather = weather[overpass_weahter.KEY_OPENWEATHERMAP_CURRENT_WEATHER_DATA]
     
-    logging.debug('name[{0}] lat[{1}] lon[{2}] temp[{3}] pressure[{4}] humidity[{5}]'.format(
-        weather[overpass_weahter.KEY_NAME],
-        weather[overpass_weahter.KEY_LAT],
-        weather[overpass_weahter.KEY_LON],
+    logging.debug('osm_id[{0}] name[{1}] lat[{2}] lon[{3}] temp[{4}] pressure[{5}] humidity[{6}]'.format(
+        osm[overpass_weahter.KEY_ID],
+        osm[overpass_weahter.KEY_NAME],
+        osm[overpass_weahter.KEY_LAT],
+        osm[overpass_weahter.KEY_LON],
         openweathermap_weather['main']['temp'],
         openweathermap_weather['main']['pressure'],
         openweathermap_weather['main']['humidity']))
@@ -112,7 +114,7 @@ def test_overpass_file():
 # - - - - - - - - - - - - - - - - - - - -
 def main():
     logging.basicConfig(format='%(asctime)s %(levelname)s %(filename)s:%(lineno)s - %(funcName)s() : %(message)s', level=logging.DEBUG)
-        
+    
     test_overpass_api()
     test_overpass_file()
     
