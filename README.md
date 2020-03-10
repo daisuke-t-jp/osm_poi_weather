@@ -46,8 +46,7 @@ There are two ways to get Overpass API data.
 
 ```py
     # overpass_weahter.weathers_with_overpass_file(overpass_file_path, openweathermap_api_key, openweathermap_api_interval_seconds)
-    weathers = overpass_weahter.weathers_with_overpass_api("""
-                                            'overpass_building_cathedral.json',
+    weathers = overpass_weahter.weathers_with_overpass_file('overpass_building_cathedral.json',
                                             OPENWEATHERMAP_API_KEY,
                                             0.1)
 
